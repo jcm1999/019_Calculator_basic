@@ -4,7 +4,7 @@ import java.awt.event.*;
 class Calculator implements ActionListener{
     JFrame frame;
     JTextField textField;
-    JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdiv,bmul,bsub,badd,bdec,beq,bdel,bclr;
+    JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdiv,bmul,bsub,badd,bdec,beq,bdel,bclr,blog;
     
     static double firstNumber=0, secondNumber=0, result=0;
     static int operator=0;
@@ -30,6 +30,7 @@ class Calculator implements ActionListener{
         beq = new JButton("=");
         bdel = new JButton("<--");
         bclr = new JButton("Clear");
+        blog = new JButton("log");
 
         textField.setBounds(30,40,280,30);
         b7.setBounds(40,100,50,40);
@@ -179,6 +180,8 @@ class Calculator implements ActionListener{
         }
 
     public static void main(String...s){
+        /*
+        Testing math methods
         double mathTest = Math.pow(10.0, 2.0);
         System.out.println("10^2 = " + mathTest);
         
@@ -193,6 +196,8 @@ class Calculator implements ActionListener{
         
         mathTest = Math.log10(500.0);
         System.out.println("Math.log10(500.0) = " + mathTest);
+        */
+        
         new Calculator();
 }
 }
