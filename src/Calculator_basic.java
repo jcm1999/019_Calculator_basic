@@ -4,7 +4,7 @@ import java.awt.event.*;
 class Calculator implements ActionListener{
     JFrame frame;
     JTextField textField;
-    JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdiv,bmul,bsub,badd,bdec,beq,bdel,bclr,blog;
+    JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdiv,bmul,bsub,badd,bdec,beq,bdel,bclr,bxsqrd,bxcub,bsqrt,blog10;
     
     static double firstNumber=0, secondNumber=0, result=0;
     static int operator=0;
@@ -30,31 +30,38 @@ class Calculator implements ActionListener{
         beq = new JButton("=");
         bdel = new JButton("<--");
         bclr = new JButton("Clear");
-        blog = new JButton("log");
+        bxsqrd = new JButton("x^2");
+        bxcub = new JButton("x^3");
+        bsqrt = new JButton("sqrt");
+        blog10 = new JButton("log");
 
-        textField.setBounds(30,40,280,30);
+        textField.setBounds(40,40,300,30);
         b7.setBounds(40,100,50,40);
         b8.setBounds(110,100,50,40);
         b9.setBounds(180,100,50,40);
         bdiv.setBounds(250,100,50,40);
+        bxsqrd.setBounds(320,100,70,40);
         
         b4.setBounds(40,170,50,40);
         b5.setBounds(110,170,50,40);
         b6.setBounds(180,170,50,40);
         bmul.setBounds(250,170,50,40);
+        bxcub.setBounds(320,170,70,40);
         
         b1.setBounds(40,240,50,40);
         b2.setBounds(110,240,50,40);
         b3.setBounds(180,240,50,40);
         badd.setBounds(250,240,50,40);
+        bsqrt.setBounds(320,240,70,40);
         
         bdec.setBounds(40,310,50,40);
         b0.setBounds(110,310,50,40);
         beq.setBounds(180,310,50,40);
         bsub.setBounds(250,310,50,40);
+        blog10.setBounds(320,310,70,40);
         
-        bdel.setBounds(50,380,100,40);
-        bclr.setBounds(180,380,100,40);
+        bdel.setBounds(80,380,100,40);
+        bclr.setBounds(210,380,100,40);
         
         frame.add(textField);
         frame.add(b1);
@@ -75,10 +82,14 @@ class Calculator implements ActionListener{
         frame.add(beq);
         frame.add(bdel);
         frame.add(bclr);
+        frame.add(bxsqrd);
+        frame.add(bxcub);
+        frame.add(bsqrt);
+        frame.add(blog10);
         
         frame.setLayout(null);
         frame.setVisible(true);
-        frame.setSize(350,500);
+        frame.setSize(440,500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
           
@@ -100,6 +111,10 @@ class Calculator implements ActionListener{
         beq.addActionListener(this);
         bdel.addActionListener(this);
         bclr.addActionListener(this);
+        bxsqrd.addActionListener(this);
+        bxcub.addActionListener(this);
+        bsqrt.addActionListener(this);
+        blog10.addActionListener(this);
 }
     public void actionPerformed(ActionEvent e){
             if(e.getSource()==b1)
@@ -147,6 +162,30 @@ class Calculator implements ActionListener{
                 firstNumber=Double.parseDouble(textField.getText());
                 operator=4;
                 textField.setText("");
+                }
+             if(e.getSource()==bxsqrd)
+                {
+                firstNumber=Double.parseDouble(textField.getText());
+                Double outcome = Math.pow(firstNumber, 2);
+                textField.setText(""+outcome);
+                }
+             if(e.getSource()==bxcub)
+                {
+                firstNumber=Double.parseDouble(textField.getText());
+                Double outcome = Math.pow(firstNumber, 3);
+                textField.setText(""+outcome);
+                }
+             if(e.getSource()==bsqrt)
+                {
+                firstNumber=Double.parseDouble(textField.getText());
+                Double outcome = Math.pow(firstNumber, 0.5);
+                textField.setText(""+outcome);;
+                }
+             if(e.getSource()==blog10)
+                {
+                firstNumber=Double.parseDouble(textField.getText());
+                Double outcome = Math.log10(firstNumber);
+                textField.setText(""+outcome);
                 }
             if(e.getSource()==beq){
                 secondNumber=Double.parseDouble(textField.getText());
